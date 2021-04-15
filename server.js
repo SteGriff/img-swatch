@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const ttsvgLib = require("text-to-svg");
 const svgEngine = ttsvgLib.loadSync();
+const svgRender = require("svg-render");
 
 app.use(express.static("public"));
 
@@ -11,7 +12,6 @@ app.get("/", (request, response) => {
 
 app.get("/:text.svg", (request, response) => {
   const text = request.params.text;
-  
   const svg = makeSvg(text);
   response.setHeader("content-type", "image/svg+xml");
   response.send(svg);
@@ -20,11 +20,17 @@ app.get("/:text.svg", (request, response) => {
 app.get("/:text.png", (request, response) => {
   const text = request.params.text;
   const svg = makeSvg(text);
-  response.setHeader("content-type", "image/svg+xml");
-  response.send(svg);
+  const svgBuffer = Buffer.from(svg);
+
+  svgRender({
+    buffer: svgBuffer
+  }).then(function(png) {
+    response.setHeader("content-type", "image/png");
+    response.send(png);
+  });
 });
 
-const makeSvg = (text) => {
+const makeSvg = text => {
   console.log("Requested:", text);
 
   const attributes = { fill: "white", stroke: "black" };
@@ -37,9 +43,9 @@ const makeSvg = (text) => {
   };
   const svg = svgEngine.getSVG(text, options);
 
-  console.log(svg);
+  //console.log(svg);
   return svg;
-}
+};
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
