@@ -9,9 +9,10 @@ app.use(express.static("public"));
 
 app.get("/api/:url", (request, response) => {
   const url = request.params.url;
-  console.log("get", url);
+  const num = request.query.n || 5;
+  console.log("get", url, request.query);
   colorThief
-    .getPalette(url, 5)
+    .getPalette(url, num)
     .then(palette => {
       const returnObject = makeResponse(palette);
       console.log("OK!", returnObject);

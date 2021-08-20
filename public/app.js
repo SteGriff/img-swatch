@@ -17,7 +17,7 @@ var app = new Vue({
   methods: {
     getPalette() {
       const encodedUrl = encodeURIComponent(this.url);
-      const endpoint = `/api/${encodedUrl}`;
+      const endpoint = `/api/${encodedUrl}?n=8`;
       console.log("Call", endpoint);
       fetch(endpoint)
         .then(response => response.json())
