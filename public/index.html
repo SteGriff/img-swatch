@@ -57,19 +57,19 @@
           </fieldset>
         </form>
 
-        <section v-if="response" class="flex flex-wrap mt4 mw7 center">
+        <section v-if="response" class="flex flex-wrap mv4 mw7 center">
           <div v-for="colour in response" class="w-20 tc">
             <div
               class="splodge center"
               :style="{ backgroundColor : colour.hex }"
             ></div>
-            <p>{{colour.hex}}</p>
-            <p>rgb({{colour.r}}, {{colour.g}}, {{colour.b}})</p>
+            <p class="f6 b">{{colour.hex}}</p>
+            <p class="f7 code">rgb({{colour.r}}, {{colour.g}}, {{colour.b}})</p>
           </div>
         </section>
         
         <section v-if="url">
-          <img class="mh3" :src="url" />
+          <img class="h5" :src="url" />
         </section>
       </div>
     </main>
