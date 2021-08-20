@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="tachyons.css" />
+    <style>
+
+    </style>
+  </head>
+  <body class="sans-serif">
+    <main class="ma3" id="app">
+      
+    <h1 class="blue">img-swatch</h1>
+
+    <p>
+      Get a swatch/palette from an image URL
+    </p>
+    
+    <form>
+      <input name="url" placeholder="url" id="url" v-model="url">
+      <button type="button" @click="getPalette">Get</button>
+    </form>
+
+    </main>
+    
+    <!-- Glitch button makes it easier to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+    <!-- Swap to vue.prod.js when ready -->
+    <script src="vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

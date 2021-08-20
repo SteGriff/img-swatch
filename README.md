@@ -1,25 +1,19 @@
-# svg-text
+# img-swatch
 
-**Big idea:** Request an image URL like `svg-text.glitch.me/Hello World.svg` and it returns a dynamic SVG.
+**Big idea:** Get the palette (swatch) of an image by URL
 
-Trying out <https://www.npmjs.com/package/text-to-svg>
+Using <https://github.com/lokesh/color-thief>
 
-Also maybe <https://www.npmjs.com/package/svg-render> for PNG if needed?
+## UI
 
-**I did it!** Wow, that took about an hour tops. Open Source is good actually.
+
 
 ## API
 
-### Get an SVG
+### Get a palette
 
-<https://svg-text.glitch.me/Hello%20World.svg>
+<https://img-swatch.glitch.me/api/{url}>
 
-### Get a PNG
+Example
 
-<https://svg-text.glitch.me/Hello%20World.png>
-
-## Future
-
-Needs more fonts and background/outline options
-
-Maybe use querystrings for this
+<https://img-swatch.glitch.me/api/https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fretromiami80.jpg>
