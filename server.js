@@ -3,50 +3,46 @@ const app = express();
 const ttsvgLib = require("text-to-svg");
 const svgEngine = ttsvgLib.loadSync();
 const svgRender = require("svg-render");
-const colorThief = require('colorthief');
+const colorThief = require("colorthief");
 
 app.use(express.static("public"));
 
 app.get("/api/:url", (request, response) => {
   const url = request.params.url;
   console.log("get", url);
-  colorThief.getPalette(url, 5)
-    .then(palette => { console.log(palette) })
-    .catch(err => { 
-    console.error(err);
-    response.sendS
-  })
+  colorThief
+    .getPalette(url, 5)
+    .then(palette => {
+      const returnObject = makeResponse(palette);
+      console.log("OK!", returnObject);
+      response.json(returnObject);
+    })
+    .catch(err => {
+      console.error(err);
+      response.status(500).send("colorThief died, sorry");
+    });
 });
 
-app.get("/:text.png", (request, response) => {
-  const text = request.params.text;
-  const svg = makeSvg(text);
-  const svgBuffer = Buffer.from(svg);
-
-  svgRender({
-    buffer: svgBuffer
-  }).then(function(png) {
-    response.setHeader("content-type", "image/png");
-    response.send(png);
+const makeResponse = palette => {
+  // rgbToHex(102, 51, 153); // #663399
+  return palette.map(col => {
+    return {
+      r: col[0],
+      g: col[1],
+      b: col[2],
+      hex: rgbToHex(col[0], col[1], col[2])
+    };
   });
-});
-
-const makeSvg = text => {
-  console.log("Requested:", text);
-
-  const attributes = { fill: "white", stroke: "black" };
-  const options = {
-    x: 0,
-    y: 0,
-    fontSize: 72,
-    anchor: "top",
-    attributes: attributes
-  };
-  const svg = svgEngine.getSVG(text, options);
-
-  //console.log(svg);
-  return svg;
 };
+
+const rgbToHex = (r, g, b) =>
+  "#" +
+  [r, g, b]
+    .map(x => {
+      const hex = x.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    })
+    .join("");
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {

@@ -7,7 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="tachyons.css" />
     <style>
-
+      .splodge{    
+        width: 64px;
+        height: 64px;
+        border-radius: 64px;
+      }
+      .flex { display: flex; }
     </style>
   </head>
   <body class="sans-serif">
@@ -23,6 +28,16 @@
       <input name="url" placeholder="url" id="url" v-model="url">
       <button type="button" @click="getPalette">Get</button>
     </form>
+      
+      <section v-if="response" class="flex">
+        <div v-for="colour in response" >
+          <div class="splodge" :style="{ backgroundColor : colour.hex }">
+          </div>
+          <span>{{colour.hex}}</span>
+          <span>rgb({{colour.r}}, {{colour.g}}, {{colour.r}})</span>
+        </div>
+
+      </section>
 
     </main>
     
