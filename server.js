@@ -3,18 +3,19 @@ const app = express();
 const ttsvgLib = require("text-to-svg");
 const svgEngine = ttsvgLib.loadSync();
 const svgRender = require("svg-render");
+const colorThief = require('colorthief');
 
 app.use(express.static("public"));
 
-app.get("/", (request, response) => {
-  response.redirect("/Use me like this.svg")
-});
-
-app.get("/:text.svg", (request, response) => {
-  const text = request.params.text;
-  const svg = makeSvg(text);
-  response.setHeader("content-type", "image/svg+xml");
-  response.send(svg);
+app.get("/api/:url", (request, response) => {
+  const url = request.params.url;
+  console.log("get", url);
+  colorThief.getPalette(url, 5)
+    .then(palette => { console.log(palette) })
+    .catch(err => { 
+    console.error(err);
+    response.sendS
+  })
 });
 
 app.get("/:text.png", (request, response) => {

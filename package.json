@@ -1,10 +1,7 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
+  "name": "img-swatch",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "Get palettes",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -12,13 +9,14 @@
   "dependencies": {
     "express": "^4.17.1",
     "text-to-svg": "^3.1.5",
-    "svg-render": "^1.1.0"
+    "svg-render": "^1.1.0",
+    "colorthief": "^2.3.2"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://glitch.com/edit/#!/img-swatch"
   },
   "license": "MIT",
   "keywords": [
