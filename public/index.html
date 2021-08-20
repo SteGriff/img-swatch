@@ -12,7 +12,6 @@
         height: 64px;
         border-radius: 64px;
       }
-      .flex { display: flex; }
     </style>
   </head>
   <body class="sans-serif">
@@ -24,17 +23,32 @@
       {{message}}
     </p>
     
+      <div class="pa4-l">
+  <form class="bg-near-white mw7 center pa4 br2-ns ba b--black-10">
+    <fieldset class="cf bn ma0 pa0">
+      <legend class="pa0 f5 f4-ns mb3 black-80">Enter an image URL</legend>
+      <div class="cf">
+        <label class="clip" for="url">Image URL</label>
+        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" 
+               name="url" placeholder="url" id="url" v-model="url">
+        
+        <input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" type="submit" value="Subscribe">
+      </div>
+    </fieldset>
+  </form>
+</div>
+      
     <form>
       <input name="url" placeholder="url" id="url" v-model="url">
       <button type="button" @click="getPalette">Get</button>
     </form>
       
-      <section v-if="response" class="flex">
+      <section v-if="response" class="flex mt3">
         <div v-for="colour in response" >
           <div class="splodge" :style="{ backgroundColor : colour.hex }">
           </div>
-          <span>{{colour.hex}}</span>
-          <span>rgb({{colour.r}}, {{colour.g}}, {{colour.r}})</span>
+          <p>{{colour.hex}}</p>
+          <p>rgb({{colour.r}}, {{colour.g}}, {{colour.b}})</p>
         </div>
 
       </section>
@@ -45,6 +59,7 @@
     <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
     <script src="https://button.glitch.me/button.js"></script>
 
+    <script src="data.js"></script>
     <!-- Swap to vue.prod.js when ready -->
     <script src="vue.js"></script>
     <script src="app.js"></script>

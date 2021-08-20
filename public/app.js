@@ -5,8 +5,8 @@ var app = new Vue({
     return {
       url:
         "https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fretromiami80.jpg",
-      message: "Gets a swatch/palette from an image URL. ",
-      response: null
+      message: "Gets a swatch/palette from an image URL.",
+      response: window.defaultResponse
     };
   },
   computed: {
