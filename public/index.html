@@ -26,7 +26,11 @@
         <form class="bg-near-white mw7 center pa4 br2-ns ba b--black-10">
           <fieldset class="cf bn ma0 pa0">
             <div class="cf flex mv2">
-              <label class="f6 f5-l b black-80 pa3 lh-solid br2-ns tr" for="colours">Colours</label>
+              <label
+                class="f6 f5-l b black-80 pa3 lh-solid br2-ns tr"
+                for="colours"
+                >Colours</label
+              >
               <input
                 class="f6 f5-l input-reset bn black-80 bg-white pa3 lh-solid br2-ns"
                 placeholder="8"
@@ -36,9 +40,13 @@
                 v-model="colours"
               />
             </div>
-            
+
             <div class="cf flex">
-              <label class="f6 f5-l b black-80 pa3 lh-solid br2-ns tr w-10" for="url">URL</label>
+              <label
+                class="f6 f5-l b black-80 pa3 lh-solid br2-ns tr w-10"
+                for="url"
+                >URL</label
+              >
               <input
                 class="f6 f5-l input-reset bn black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
                 placeholder="url"
@@ -55,16 +63,24 @@
               />
             </div>
           </fieldset>
-          
-          <details class="mt3">
-            <summary>Examples</summary>
-            <ul>
-              <li>https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif?v=1629465153011</li>
-              <li></li>
-              <li></li>
+
+          <details class="mt3 tl">
+            <summary class="pointer">Example URLs (click then click 'Get')</summary>
+            <ul class="mh0 ph0">
+              <li>
+                <a class="link u blue pointer"
+                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif'">
+                  https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif
+                </a>
+              </li>
+              <li>
+                <a class="link u blue pointer"
+                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif'">
+                  https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif
+                </a>
+              </li>
             </ul>
           </details>
-          
         </form>
 
         <section v-if="response" class="flex flex-wrap mv4 mw7 center">
@@ -77,7 +93,7 @@
             <p class="f7 code">rgb({{colour.r}}, {{colour.g}}, {{colour.b}})</p>
           </div>
         </section>
-        
+
         <section v-if="url">
           <img class="h5" :src="url" />
         </section>
