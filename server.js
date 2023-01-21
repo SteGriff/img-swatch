@@ -9,29 +9,30 @@ app.use(express.static("public"));
 
 app.get("/api/:url", (request, response) => {
   const url = request.params.url;
-  const num = 1*request.query.n || 5;
+  const num = 1 * request.query.n || 5;
   console.log("get", url, num);
   colorThief
     .getPalette(url, num, 20)
-    .then(palette => {
+    .then((palette) => {
       const returnObject = makeResponse(palette);
       // console.log("OK!", returnObject);
       response.json(returnObject);
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       response.status(500).send("colorThief died, sorry");
     });
 });
 
-const makeResponse = palette => {
+const makeResponse = (palette) => {
   // rgbToHex(102, 51, 153); // #663399
-  return palette.map(col => {
+  return palette.map((col) => {
     return {
       r: col[0],
       g: col[1],
       b: col[2],
-      hex: rgbToHex(col[0], col[1], col[2])
+      hex: rgbToHex(col[0], col[1], col[2]),
+      uxn: rgbToUxn(col[0], col[1], col[2]),
     };
   });
 };
@@ -39,13 +40,14 @@ const makeResponse = palette => {
 const rgbToHex = (r, g, b) =>
   "#" +
   [r, g, b]
-    .map(x => {
+    .map((x) => {
       const hex = x.toString(16);
       return hex.length === 1 ? "0" + hex : hex;
     })
     .join("");
 
-
+const rgbToUxn = (r, g, b) =>
+  [r, g, b].map((x) => Math.round(x / 16).toString(16)).join("");
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {

@@ -11,8 +11,9 @@ var app = new Vue({
     };
   },
   computed: {
-    sum() {
-      return 2 + 2;
+    paletteJson() {
+      
+      return "[]"
     }
   },
   methods: {
