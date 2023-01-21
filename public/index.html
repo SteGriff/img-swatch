@@ -18,9 +18,7 @@
     <main class="ma3 tc" id="app">
       <h1 class="blue">img-swatch</h1>
 
-      <p>
-        {{message}}
-      </p>
+      <p>{{message}}</p>
 
       <div class="pa4-l">
         <form class="bg-near-white mw7 center pa4 br2-ns ba b--black-10">
@@ -65,17 +63,23 @@
           </fieldset>
 
           <details class="mt3 tl">
-            <summary class="pointer">Example URLs (click then click 'Get')</summary>
+            <summary class="pointer">
+              Example URLs (click then click 'Get')
+            </summary>
             <ul class="mh0 ph0">
               <li>
-                <a class="link u blue pointer"
-                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif'">
+                <a
+                  class="link u blue pointer"
+                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif'"
+                >
                   https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif
                 </a>
               </li>
               <li>
-                <a class="link u blue pointer"
-                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif'">
+                <a
+                  class="link u blue pointer"
+                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif'"
+                >
                   https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif
                 </a>
               </li>
@@ -93,8 +97,8 @@
             <p class="f7 code">rgb({{colour.r}}, {{colour.g}}, {{colour.b}})</p>
             <p class="f7 code">{{colour.uxn}}</p>
           </div>
-          <div>
-            <pre>{{paletteJson}}</pre>
+          <div class="bg-near-white center ph4 pv2 mt2 br2-ns ba b--black-10">
+            <code>{{paletteJson}}</code>
           </div>
         </section>
 
@@ -105,7 +109,10 @@
     </main>
 
     <!-- Glitch button makes it easier to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <div
+      class="glitchButton"
+      style="position: fixed; top: 20px; right: 20px"
+    ></div>
     <script src="https://button.glitch.me/button.js"></script>
 
     <script src="data.js"></script>

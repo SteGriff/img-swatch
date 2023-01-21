@@ -12,8 +12,7 @@ var app = new Vue({
   },
   computed: {
     paletteJson() {
-      
-      return "[]"
+      return this.response.map((c) => `"${c.hex}"`).join(", ");
     }
   },
   methods: {
