@@ -12,9 +12,6 @@
     "svg-render": "^1.1.0",
     "colorthief": "^2.3.2"
   },
-  "engines": {
-    "node": "12.x"
-  },
   "repository": {
     "url": "https://glitch.com/edit/#!/img-swatch"
   },
