@@ -6,7 +6,7 @@ Using <https://github.com/lokesh/color-thief>
 
 ## UI 🎨💻
 
-Go to the UI at <https://img-swatch.glitch.me/> and enter your URL and the number of colours to get.
+Go to the UI at <https://img-swatch.sign.me.uk/> and enter your URL and the number of colours to get.
 
 ## API 🌐👷‍♀️
 
@@ -15,19 +15,19 @@ Go to the UI at <https://img-swatch.glitch.me/> and enter your URL and the numbe
 Get the 5 predominant colours in the image (5 is the default)
 
 ```
-GET https://img-swatch.glitch.me/api/{url}
+GET https://img-swatch.sign.me.uk/api/{url}
 ```
 
 Get a custom number of colours from the image.
 
 ```
-GET https://img-swatch.glitch.me/api/{url}?n={numOfColours}
+GET https://img-swatch.sign.me.uk/api/{url}?n={numOfColours}
 ```
 
 ⚠ You have to UrlEncode the `url`. Example:
 
 ```
-https://img-swatch.glitch.me/api/https%3A%2F%2Fcdn.glitch.com%2F78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%252Fretromiami80.jpg?n=20
+https://img-swatch.sign.me.uk/api/https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F7%2F70%2FYellow_warbler_%252882905%2529.jpg%2F960px-Yellow_warbler_%252882905%2529.jpg?n=10
 ```
 
 ### Response

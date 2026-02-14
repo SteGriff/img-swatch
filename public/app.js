@@ -10,7 +10,8 @@ var app = new Vue({
       examples: [
         host + "/glitch-assets/sunset.jfif",
         host + "/glitch-assets/retromiami80.jpg",
-        host + "/glitch-assets/palm-in-water.jfif"
+        host + "/glitch-assets/palm-in-water.jfif",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Yellow_warbler_%2882905%29.jpg/960px-Yellow_warbler_%2882905%29.jpg"
       ],
       message: "Gets a swatch/palette from an image URL.",
       response: window.defaultResponse,

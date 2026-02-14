@@ -12,9 +12,6 @@
     "svg-render": "^2.0.1",
     "colorthief": "^2.6.0"
   },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/img-swatch"
-  },
   "license": "MIT",
   "keywords": [
     "node",
