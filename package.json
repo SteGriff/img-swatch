@@ -7,10 +7,10 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^5.2.1",
     "text-to-svg": "^3.1.5",
-    "svg-render": "^1.1.0",
-    "colorthief": "^2.3.2"
+    "svg-render": "^2.0.1",
+    "colorthief": "^2.6.0"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/img-swatch"

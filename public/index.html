@@ -67,20 +67,12 @@
               Example URLs (click then click 'Get')
             </summary>
             <ul class="mh0 ph0">
-              <li>
+              <li v-for="example in examples">
                 <a
                   class="link u blue pointer"
-                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif'"
+                  @click="url = example"
                 >
-                  https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fsunset.jfif
-                </a>
-              </li>
-              <li>
-                <a
-                  class="link u blue pointer"
-                  @click="url = 'https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif'"
-                >
-                  https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fphoto-1557533046-154fc97b729f.jfif
+                  {{example}}
                 </a>
               </li>
             </ul>

@@ -50,6 +50,6 @@ const rgbToUxn = (r, g, b) =>
   [r, g, b].map((x) => Math.round(x / 16).toString(16)).join("");
 
 // listen for requests :)
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });

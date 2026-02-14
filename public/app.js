@@ -1,10 +1,17 @@
 /* global Vue */
+const host = "https://img-swatch.sign.me.uk";
+
 var app = new Vue({
   el: "#app",
   data: () => {
     return {
-      url:
-        "https://cdn.glitch.com/78ba4e5b-5ff2-42d0-9ce6-7aafe2d3c594%2Fretromiami80.jpg",
+      host: host,
+      url: host + "/glitch-assets/retromiami80.jpg",
+      examples: [
+        host + "/glitch-assets/sunset.jfif",
+        host + "/glitch-assets/retromiami80.jpg",
+        host + "/glitch-assets/palm-in-water.jfif"
+      ],
       message: "Gets a swatch/palette from an image URL.",
       response: window.defaultResponse,
       colours: 5
