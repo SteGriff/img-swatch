@@ -1,8 +1,5 @@
 const express = require("express");
 const app = express();
-// const ttsvgLib = require("text-to-svg");
-// const svgEngine = ttsvgLib.loadSync();
-// const svgRender = require("svg-render");
 const colorThief = require("colorthief");
 
 app.use(express.static("public"));
@@ -67,7 +64,6 @@ app.get("/api/:url", async (request, response) => {
 });
 
 const makeResponse = (palette) => {
-  // rgbToHex(102, 51, 153); // #663399
   return palette.map((col) => {
     return {
       r: col[0],
