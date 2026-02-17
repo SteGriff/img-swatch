@@ -65,7 +65,8 @@ var app = new Vue({
       
       img.addEventListener('load', () => {
         try {
-          const palette = colorThief.getPalette(img, this.colours, 10);
+          const numColors = parseInt(this.colours, 10) || 5;
+          const palette = colorThief.getPalette(img, numColors, 10);
           this.response = makeResponse(palette);
           this.message = "Got it! ✅";
           console.log("Palette:", this.response);
